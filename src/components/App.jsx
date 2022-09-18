@@ -13,7 +13,14 @@ export class App extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (this.state.contacts !== prevState.contacts) {
-      localStorage.setItem('phoneBook', JSON.stringify(this.state.contacts));
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
+
+  componentDidMount() {
+    if (localStorage.getItem('contacts') !== null) {
+      const phoneData = JSON.parse(localStorage.getItem('contacts'));
+      this.setState({ contacts: phoneData });
     }
   }
 
