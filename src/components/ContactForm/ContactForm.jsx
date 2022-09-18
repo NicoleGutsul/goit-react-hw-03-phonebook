@@ -1,5 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from 'yup';
+import propTypes from 'prop-types';
 
 const errorName =
   "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan";
@@ -64,3 +65,7 @@ const ContactForm = ({ onSubmit }) => {
 
 
 export default ContactForm;
+
+ContactForm.propTypes = {
+  onSubmit: propTypes.func.isRequired,
+}.isRequired
